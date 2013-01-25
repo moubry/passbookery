@@ -5,7 +5,7 @@ A proof-of-concept for using Passbook
 
 You can see it here:
 
-http://shrouded-plateau-7574.herokuapp.com
+http://shrouded-plateau-7574.herokuapp.com/ | git@heroku.com:shrouded-plateau-7574.git
 
 Resources
 ------
