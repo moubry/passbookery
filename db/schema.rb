@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121012202250) do
+ActiveRecord::Schema.define(:version => 20130125210932) do
 
   create_table "logs", :force => true do |t|
     t.text     "message"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20121012202250) do
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.string   "authentication_token"
+    t.string   "which"
   end
 
   add_index "passes", ["pass_type_identifier", "serial_number"], :name => "index_passes_on_pass_type_identifier_and_serial_number"

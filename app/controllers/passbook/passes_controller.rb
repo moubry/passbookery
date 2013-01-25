@@ -8,13 +8,16 @@ class Passbook::PassesController < ApplicationController
     head :not_found and return if @pass.nil?
     head :unauthorized and return if request.env['HTTP_AUTHORIZATION'] != "ApplePass #{@pass.authentication_token}"
 
+    debugger
+
     mime_type = Mime::Type.lookup_by_extension(:pkpass)
     content_type = mime_type.to_s unless mime_type.nil?
 
+    filename = "#{Rails.root}/public/tripcase_flight.pkpass"
+    filename = "#{Rails.root}/public/tripcase_flightgatee32.pkpass" if @pass.which == '2'
+    filename = "#{Rails.root}/public/tripcase_flight_833am.pkpass" if @pass.which == '3'
+
     if stale?(last_modified: @pass.updated_at.utc)
-      # respond_with @pass
-      filename = "#{Rails.root}/public/tripcase_flight.pkpass"
-      # render :file => filename, :content_type => content_type
       send_file filename, :type => 'application/vnd.apple.pkpass'
     else
       head :not_modified
