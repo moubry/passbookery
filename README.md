@@ -3,6 +3,10 @@ passbookery
 
 A proof-of-concept for using Passbook
 
+You can see it here:
+
+http://shrouded-plateau-7574.herokuapp.com
+
 Resources
 ------
 
