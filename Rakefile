@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Passbookery::Application.load_tasks
+PassbookRailsExample::Application.load_tasks

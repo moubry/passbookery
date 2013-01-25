@@ -1,7 +1,9 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Emanuel', :city => cities.first)
+pass = Passbook::Pass.create(pass_type_identifier: "com.company.pass.example", serial_number: "ABC123", authentication_token: "XYZ456")
+pass.data = {
+  foo: 57,
+  bar: Time.now,
+  baz: "Lorem ipsum dolar sit amet"
+}
+pass.save
+
+pass.registrations.create(device_library_identifier: "123456789", push_token: "00000000 00000000 00000000 00000000 00000000 00000000 00000000 00000000")
