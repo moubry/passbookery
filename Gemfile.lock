@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:burin/passbook.git
+  remote: https://github.com/burin/passbook.git
   revision: f33350fe672f04a82bc5d53f4a98973bd67c60ff
   branch: changing-namespace
   specs:
