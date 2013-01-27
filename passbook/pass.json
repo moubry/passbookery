@@ -1,0 +1,88 @@
+{
+  "formatVersion" : 1,
+  "passTypeIdentifier" : "pass.pbj.www",
+  "serialNumber" : "123456",
+  "teamIdentifier" : "TX6A3AL234",
+  "webServiceURL" : "https://shrouded-plateau-7574.herokuapp.com/passbook",
+  "authenticationToken" : "1234567890123456",
+  "relevantDate" : "2013-01-25T18:02-06:00",
+  "locations" : [
+    {
+      "longitude" : -122.3748889,
+      "latitude" : 37.6189722
+    }
+  ],
+  "organizationName" : "TripCase Flight",
+  "description" : "TripCase Flight Item",
+  "logoText" : "Flight",
+  "foregroundColor" : "rgb(255,255,255)",
+  "backgroundColor" : "rgb(37, 45, 52)",
+  "boardingPass" : {
+    "transitType" : "PKTransitTypeAir",
+    "headerFields" : [
+      {
+        "label" : "DATE",
+        "key" : "date",
+        "value" : "1/25"
+      }
+    ],
+    "primaryFields" : [
+      {
+        "key" : "depart",
+        "label" : "John F. Kennedy International Airport",
+        "value" : "JFK"
+      },
+      {
+        "key" : "arrive",
+        "label" : "Zurich Airport",
+        "value" : "ZRH"
+      }
+    ],
+    "secondaryFields" : [
+      {
+        "label" : "FLIGHT",
+        "key" : "flight",
+        "value" : "American Airlines 64",
+        "changeMessage" : "Flight changed to %@."
+      }
+    ],
+    "auxiliaryFields" : [
+      {
+        "label" : "DEPART",
+        "key" : "departureTime",
+        "value" :  "6:02pm",
+        "changeMessage" : "Departure time changed to %@."
+      },
+      {
+        "label" : "GATE",
+        "key" : "departureGate",
+        "value" : "8/B16",
+        "changeMessage" : "Departure gate changed to %@"
+      },
+      {
+        "label" : "ARRIVE",
+        "key" : "arrivalTime",
+        "value" : "6:33am",
+        "changeMessage" : "Arrival time changed to %@"
+      },
+      {
+        "label" : "GATE",
+        "key" : "arrivalGate",
+        "value" :  "2/E32",
+        "changeMessage" : "Arrival gate changed to %@"
+      }
+    ],
+    "backFields" : [
+      {
+        "key" : "passport",
+        "label" : "PASSPORT",
+        "value" : "United States of America"
+      },
+      {
+        "key" : "residence",
+        "label" : "RESIDENCE",
+        "value" : "3150 Sabre Drive"
+      }
+    ]
+  }
+}

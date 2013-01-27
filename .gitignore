@@ -30,3 +30,7 @@ pickle-email-*.html
 .sass-cache
 capybara-*.html
 .rspec
+
+/certs
+
+.DS_Store

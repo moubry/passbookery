@@ -8,17 +8,27 @@ class Passbook::PassesController < ApplicationController
     head :not_found and return if @pass.nil?
     head :unauthorized and return if request.env['HTTP_AUTHORIZATION'] != "ApplePass #{@pass.authentication_token}"
 
-    debugger
+    # suck in example data for now, can be provided by the DB entry later if we want
+    passJSONPath = "#{Rails.root}/passbook/pass.json"
+    passJSONPath = "#{Rails.root}/passbook/pass2.json" if @pass.which == '2'
+    passJSONPath = "#{Rails.root}/passbook/pass3.json" if @pass.which == '3'
 
-    mime_type = Mime::Type.lookup_by_extension(:pkpass)
-    content_type = mime_type.to_s unless mime_type.nil?
+    # read in the JSON from the file
+    passJSON = File.read(passJSONPath)
 
-    filename = "#{Rails.root}/public/tripcase_flight.pkpass"
-    filename = "#{Rails.root}/public/tripcase_flightgatee32.pkpass" if @pass.which == '2'
-    filename = "#{Rails.root}/public/tripcase_flight_833am.pkpass" if @pass.which == '3'
+    passFile = PB::PKPass.new passJSON
+
+    passFile.addFiles [
+      "#{Rails.root}/passbook/icon.png",
+      "#{Rails.root}/passbook/icon@2x.png",
+      "#{Rails.root}/passbook/logo.png",
+      "#{Rails.root}/passbook/logo@2x.png"
+    ]
+
+    pkpass = passFile.file
 
     if stale?(last_modified: @pass.updated_at.utc)
-      send_file filename, :type => 'application/vnd.apple.pkpass'
+      send_file pkpass.path, type: 'application/vnd.apple.pkpass', disposition: 'attachment', filename: "pass.pkpass"
     else
       head :not_modified
     end
